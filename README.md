@@ -30,7 +30,7 @@ False,					Tells the program that you do not have this drop and it should visit 
 ```
 __NOTE: AFTER EDITING CONFIG.PY, DO NOT COMMIT THE FILE__
 
-__NOTE: This program does not upload or store your username/password anywhere else. I will never get any passwords from this program.
+__NOTE: This program does not upload or store your username/password anywhere else. I will never get any passwords from this program.__
 
 ## Execute
 
