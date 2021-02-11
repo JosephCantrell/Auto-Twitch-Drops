@@ -12,7 +12,8 @@ pip install -r requirements.txt
 
 Enter your username, password in the `config.py` file
 
-Inside of this `config.py` file, you need to modify the streamerURLs and AlreadyGot values to tell the program what to visit and if to skip certain streamers if you already have the drop
+Inside of this `config.py` file, you need to modify the streamerURLs values to tell the program what to visit  
+Modify the `status.txt` to tell the bot to skip certain streamers if you already have the drop
 
 ```
 username = Enter your username here
@@ -23,10 +24,13 @@ streamerURL = 'Streamer Channel link 1',
 'Streamer Channel link 3',
 ...,
 
-AlreadyGot = [False, 	Tells the program that you do not have this drop and it should visit this streamer (link 1)
-True,					Tells the program that you have this drop and do not visit this streamer (link 2)
-False,					Tells the program that you do not have this drop and it should visit this streamer (link 3)
-...,]					
+_____________________
+
+f f f f f f f f f		F = do not have the drop, T = do have the drop.
+
+3rd F correlates with the 3rd streamer.
+
+
 ```
 __NOTE: AFTER EDITING CONFIG.PY, DO NOT COMMIT THE FILE__
 
