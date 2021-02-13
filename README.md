@@ -4,7 +4,7 @@ This program runs and controls a browser to automatically watch twitch drops.
 
 ## Setup  
 
-To run the code, you must install the requirement
+To run the code, you must install the requirement. You must have pip downloaded on your pc
 
 ```bash
 pip install -r requirements.txt
