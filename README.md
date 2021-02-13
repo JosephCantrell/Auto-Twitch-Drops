@@ -50,4 +50,14 @@ OR
 autotwitch.py -g rust
 ```
 
+### Parameters  
+
+```
+-h			Parameter Help
+-g			Tells the bot what game to search for. example (Single Word Game) -g rust. (multi-word game) -g "Tom Clancy's Rainbow Six Siege"
+-t			Tells the bot how long to watch a stream for.
+```
+
+__NOTE:	YOU MUST PUT THE EXACT GAME NAME IN AS IS SHOWN ON THE STREAM.__
+
  
