@@ -16,6 +16,8 @@ Inside of this `config.py` file, you need to modify the streamerURLs values to t
 Modify the `status.txt` to tell the bot to skip certain streamers if you already have the drop
 
 ```
+config.py
+_____________________
 username = Enter your username here
 password = Enter your password here
 
@@ -24,6 +26,7 @@ streamerURL = 'Streamer Channel link 1',
 'Streamer Channel link 3',
 ...,
 
+status.txt
 _____________________
 
 f f f f f f f f f		F = do not have the drop, T = do have the drop.
@@ -60,4 +63,7 @@ autotwitch.py -g rust
 
 __NOTE:	YOU MUST PUT THE EXACT GAME NAME IN AS IS SHOWN ON THE STREAM.__
 
+## Contact Information
+Joseph D Cantrell
+JosephCantrell@josephdcantrell.com
  
