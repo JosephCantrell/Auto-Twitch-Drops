@@ -93,9 +93,9 @@ class AutoStream:
             if item:
                 trueCount += 1
         while True:
-            if trueCount != len(personalAlreadyGot):
+            if trueCount != len(personalAlreadyGot) or self.args.loop:
                 for i in range(0, len(streamerURL)):
-                    if not personalAlreadyGot[i]:
+                    if not personalAlreadyGot[i] or self.args.loop:
                         links = streamerURL[i]
                         self.browser.get(links)
                         time.sleep(random.uniform(2,5))
@@ -150,18 +150,19 @@ class AutoStream:
                             timeDelta = nowtime - startTime
                             totalSeconds = timeDelta.total_seconds()
                             mins = totalSeconds/60
-                            if mins > int(args.watchTime) + random.randint(0,3):
-                                print('We have watched for over two hours. Time to move on. Changeing ' + str(i) + ' in status to True')
-                                personalAlreadyGot[i] = True
-                                isPlaying = False
-                                temp = ''
-                                for item in personalAlreadyGot:
-                                    temp = temp + item + ' '
-                                file = open('status.txt','w')
-                                file.write(temp)
-                                file.close()
-                            else:
-                                print('Still Watching. Its been %d Minutes' % mins)
+                            if int(args.watchTime) != 0:
+                                if mins > int(args.watchTime) + random.randint(0,3):
+                                    print('We have watched for over two hours. Time to move on. Changeing ' + str(i) + ' in status to True')
+                                    personalAlreadyGot[i] = True
+                                    isPlaying = False
+                                    temp = ''
+                                    for item in personalAlreadyGot:
+                                        temp = temp + item + ' '
+                                    file = open('status.txt','w')
+                                    file.write(temp)
+                                    file.close()
+                                else:
+                                    print('Still Watching. Its been %d Minutes' % mins)
                 time.sleep(60*10)
             else:
                 print('All drops have been reported as counted. Breaking.')
@@ -169,11 +170,11 @@ class AutoStream:
 
 parser = argparse.ArgumentParser(description='Linkedin Automatic Job Applications')
 parser.add_argument('-g','--game', help='What game should the code check for', required=True,default='')
-parser.add_argument('-t','--watchTime', help='How long should the bot watch a streamer for in minutes (Default 120 minutes)', required=True,default=120)
-
-
+parser.add_argument('-t','--watchTime', help='How long should the bot watch a streamer for in minutes (Default will watch forever)', required=False,default=0)
+parser.add_argument('-l','--loop', help='Loop the code instead of breaking after getting all of the drops', required=False,default=False, action='store_true')
 
 args = parser.parse_args()
+
 
 bot = AutoStream(args)
 bot.run()
