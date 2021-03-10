@@ -108,6 +108,8 @@ class AutoStream:
                         isPlayingGame = False
                         isPlaying = False
                         
+                        time.sleep(5)
+                        
                         # Find the "Live" element.
                         foundLive = self.findLiveElement()
                         
@@ -141,13 +143,16 @@ class AutoStream:
                                 mins = totalSeconds/60
                                 if int(args.watchTime) != 0:
                                     if mins > int(args.watchTime) + random.randint(0,3):
-                                        print('We have watched for over %d minutes. Time to move on. Changeing ' + str(i) + ' in status to True' % args.watchTime)
+                                        print('We have watched for the set time. Time to move on.')
                                         personalAlreadyGot[i] = True
                                         isPlaying = False
                                         trueCount += 1
                                         temp = ''
                                         for item in personalAlreadyGot:
-                                            temp = temp + item + ' '
+                                            if item:
+                                                temp = temp + 't '
+                                            else:
+                                                temp = temp + 'f '
                                         file = open('status.txt','w')
                                         file.write(temp)
                                         file.close()
@@ -155,7 +160,7 @@ class AutoStream:
                                         print('Still Watching. Its been %d Minute(s)' % mins)
                     else:
                         print('Already Aquired This Drop. Moving On')
-                time.sleep(60*10)
+                time.sleep(60)
             else:
                 print('All drops have been reported as counted. Breaking.')
                 break
